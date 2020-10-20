@@ -1,0 +1,12 @@
+﻿@model string 
+
+<div class="panel-body">
+    <h2>
+        @foreach (var s in Model)
+        {@s}
+    </h2>
+    
+    <div class="text-center">
+        <a asp-action="Index" class="btn btn-primary">Cancel</a>
+    </div>
+</div>

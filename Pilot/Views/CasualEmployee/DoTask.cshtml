@@ -1,0 +1,25 @@
+﻿@model CasualEmployee
+
+<div class="panel-body">
+    <form class="p-a-1" asp-action="DoTask" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="FirstName">Your First Name:</label>
+            <input class="form-control" asp-for="FirstName" />
+            <div><span asp-validation-for="FirstName" style="color:firebrick"></span></div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName">Last Name:</label>
+            <input class="form-control" asp-for="LastName" />
+            <div><span asp-validation-for="LastName" style="color:firebrick"></span></div>
+        </div>
+        <div class="text-center">
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            <button class="btn btn-primary" type="submit">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
+
+

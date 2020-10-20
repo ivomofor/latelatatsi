@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Employee>
+
+@if (Model.Count() > 0)
+{
+    <div class="panel-body">
+        <h2>Employees Profile</h2>
+        <table class="table table-sm table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Hours</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model)
+                {
+                <tr>
+                    <td>@employee.FirstName</td>
+                    <td>@employee.LastName</td>
+                    <td>@employee.Email</td>
+                    <td>@employee.RatePerHour</td>
+                    <td><img src="~/image/IVO.jpg" asp-append-version="true" width="52px" height="50px" /></td>
+                    <td class="text-center">
+                        <form asp-action="DeleteEmployee" method="post">
+                            <a asp-action="Edit" class="btn btn-sm btn-warning"
+                               asp-route-Id="@employee.Id">
+                                Edit
+                            </a>
+                            <input type="hidden" name="Id" value="@employee.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a asp-action="CreateEmployee" class="btn btn-primary">New Employee</a>
+        </div>
+    </div>
+}
+else
+{
+    <h3>No Employee Data</h3>
+    <div class="text-center">
+        <a asp-action="CreateEmployee" class="btn btn-primary">New Employee</a>
+    </div>
+}
+<br />
+@*<h4>Do A Task </h4>
+<ul>
+    <li><a asp-action="DoTask" class="btn btn-secondary">Run an Eployee Task</a></li>
+</ul>*@
